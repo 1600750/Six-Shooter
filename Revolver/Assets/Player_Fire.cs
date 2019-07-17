@@ -7,7 +7,7 @@ public class Player_Fire : MonoBehaviour {
     public GameObject bullet;
     public GameObject barrel;
     public float speed = 100f;
-    int ammo;
+    public int ammo;
     bool fire;
     bool reload;
 	// Use this for initialization
