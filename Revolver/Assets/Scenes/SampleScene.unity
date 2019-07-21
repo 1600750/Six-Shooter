@@ -1263,7 +1263,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714ad9a5197c1de4fbd44832b1cbdb43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1253921532621476, guid: 284119e735305c540a0652287c90572e, type: 2}
+  bullet:
+  - {fileID: 1253921532621476, guid: 284119e735305c540a0652287c90572e, type: 2}
+  - {fileID: 1853138544499030, guid: 552519761b90ab944b1057806bb3d930, type: 2}
   barrel: {fileID: 212817008}
   speed: 100
   ammo: 0
