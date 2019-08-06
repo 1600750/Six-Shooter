@@ -14,6 +14,7 @@ public class Player_Fire : MonoBehaviour {
     bool next_Round;
     int j;
     int r;
+    int Type;
 	// Use this for initialization
 	void Start ()
     {
@@ -22,7 +23,9 @@ public class Player_Fire : MonoBehaviour {
         reload = true;
         next_Round = true;
         cylander = new GameObject[6];
-       
+        Type = 1;
+
+
         j = 0;
         r = 0;
 
@@ -37,20 +40,20 @@ public class Player_Fire : MonoBehaviour {
 
 
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-        if(j == 6)
+        if (j == 6)
         {
             j = 0;
         }
 
-        
 
-        if ((Input.GetAxis("Fire1") > 0 ) && fire == true && ammo > 0)
+
+        if ((Input.GetAxis("Fire1") > 0) && fire == true && ammo > 0)
         {
-            if(cylander[j] != null)
+            if (cylander[j] != null)
             {
                 GameObject instBullet = Instantiate(cylander[j], barrel.transform.position, Quaternion.identity) as GameObject;
                 Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
@@ -61,10 +64,23 @@ public class Player_Fire : MonoBehaviour {
 
             fire = false;
             j++;
-           
+
         }
 
-        if(Input.GetAxis("Next-Bullet") > 0 && next_Round == true)
+        if (Input.GetAxis("Bullet1") > 0 && Type != 0)
+        { 
+
+            Type = 0;
+
+        }
+
+        if (Input.GetAxis("Bullet2") > 0 && Type != 1)
+        {
+
+            Type = 1;
+        }
+
+        if (Input.GetAxis("Next-Bullet") > 0 && next_Round == true)
         {
             j++;
             next_Round = false;
@@ -97,16 +113,16 @@ public class Player_Fire : MonoBehaviour {
             
             if (cylander[r] == null)
             {
-                if(r == 0 || r == 2 || r== 4)
-                {
-                    cylander[r] = bullet[0];
+                //if(r == 0 || r == 2 || r== 4)
+                //{
+                //    cylander[r] = bullet[0];
+                //    ammo++;
+                //}
+                //if (r == 1 || r == 3 || r == 5)
+                //{
+                    cylander[r] = bullet[Type];
                     ammo++;
-                }
-                if (r == 1 || r == 3 || r == 5)
-                {
-                    cylander[r] = bullet[1];
-                    ammo++;
-                }
+                //}
 
             }
 
